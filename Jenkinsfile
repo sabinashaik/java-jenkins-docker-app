@@ -8,7 +8,7 @@ pipeline {
 
             steps {
 
-                git 'https://github.com/YOUR_USERNAME/java-jenkins-docker-app.git'
+                git 'https://github.com/sabinashaik/java-jenkins-docker-app.git'
 
             }
 
