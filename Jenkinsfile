@@ -1,16 +1,21 @@
 pipeline {
-   agent any
+   agent any
 
-    environment {
-       AWS_REGION = 'us-east-1'
-       AWS_ACCOUNT_ID = '595658222114'
-       ECR_REPO = 'java-jenkins-docker-app'
-       EKS_CLUSTER = 'java-eks-cluster'
-       IMAGE_TAG = "${env.BUILD_NUMBER}"
-       ECR_URI = "${595658222114}.dkr.ecr.${AWS_REGION}.amazonaws.com/${ECR_REPO}"
-       IMAGE_URI = "${ECR_URI}:${IMAGE_TAG}"
-   }
-stages {
+ 
+
+   environment {
+       AWS_REGION = 'us-east-1'
+       AWS_ACCOUNT_ID = '595658222114'
+       ECR_REPO = 'java-jenkins-docker-app'
+       EKS_CLUSTER = 'java-eks-cluster'
+       IMAGE_TAG = "${env.BUILD_NUMBER}"
+       ECR_URI = "${595658222114}.dkr.ecr.${AWS_REGION}.amazonaws.com/${ECR_REPO}"
+       IMAGE_URI = "${ECR_URI}:${IMAGE_TAG}"
+   }
+
+ 
+
+   stages {
 
  
 
@@ -18,7 +23,7 @@ stages {
            steps {
                cleanWs()
            }
-       } 
+       }
 
  
 
@@ -27,7 +32,7 @@ stages {
                git(
                    url: 'git@github.com:sabinashaik/java-jenkins-docker-app.git',
                    branch: 'main',
-                   credentialsId: 'git'
+                   credentialsId: 'jenkins-ec2-github'
                )
            }
        }
@@ -183,5 +188,5 @@ stages {
        always {
            cleanWs()
        }
- }
+   }
 }
