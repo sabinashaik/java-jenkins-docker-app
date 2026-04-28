@@ -10,13 +10,15 @@ pipeline {
        ECR_URI = "${595658222114}.dkr.ecr.${AWS_REGION}.amazonaws.com/${ECR_REPO}"
        IMAGE_URI = "${ECR_URI}:${IMAGE_TAG}"
    }
-stages{
-stage('Clean workspace'){
+stages {
 
-     steps {
+ 
+
+       stage('Clean Workspace') {
+           steps {
                cleanWs()
            }
-       }
+       } 
 
  
 
