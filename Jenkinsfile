@@ -8,7 +8,7 @@ pipeline {
 
             steps {
 
-                git branch: 'main'
+                git branch: 'main',
                     credentialsId: 'git',
                     url: 'git@github.com:sabinashaik/java-jenkins-docker-app.git'
 
